@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>3. UPS load calculation - Uninterruptible Power Supply - Celia Gómez</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "3. UPS load calculation";
+        var mkdocs_page_input_path = "unit1\\UPS-load-calculation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Uninterruptible Power Supply - Celia Gómez
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unit 1</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../ups/">1. UPS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ups-types/">2. UPS Types</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">3. UPS load calculation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#procedures-for-calculation">Procedures for calculation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-maximum-power-p-consumed-by-the-source">DATA: Maximum power (p) consumed by the source</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-power-supply-current-i">DATA: Power supply current (I)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../activities/">4. Activities</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Uninterruptible Power Supply - Celia Gómez</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Unit 1 &raquo;</li>
+      <li>3. UPS load calculation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ups-load-calculation">UPS load calculation</h1>
+<p>The maximum load that a <strong>UPS</strong> can support is measured in <strong>VA</strong> (volt-amperes) and is the apparent power (S), you can see it in any web store or in the image of the UPS on its back; the apparent power ( <strong>S</strong> ), is the vectorial sum of the power:</p>
+<ul>
+<li><strong>really necessary</strong> for the computer. It is called <strong>active power</strong> ( <strong>P</strong> ). It is measured in watts ( <strong>W</strong> )</li>
+<li>and the power <strong>not used</strong> by the computer but that has been generated in the power supply due to the formation of the electric and magnetic fields of its components. Called <strong>reactive power</strong> ( <strong>Q</strong> ), it is measured in reactive volt-amperes (var).</li>
+</ul>
+<p>The <strong>apparent power</strong> ( <strong>S</strong> ), is measured in <strong>VA</strong> (volt-amperes) which is a vectorial sum of the powers (P and Q), somewhat complex to calculate, it can be calculated with the efficiency value (%) of the power supply and its rated power (W). There are various procedures depending on the data we have.</p>
+<p>On the other hand, in alternating current it is very easy to know the apparent power if we know the intensity consumed by a device, simply apparent power = Intensity * network voltage, that is, S = I * <strong>230</strong> .</p>
+<h2 id="procedures-for-calculation">Procedures for calculation</h2>
+<p>As always, we have always known data: <strong>230V</strong> , which is the official voltage value of Spain.</p>
+<p>All procedures include <strong>S <sub><font style="vertical-align: inherit;">calculated </font></sub></strong> is the apparent power needed to run the computer, but <strong>only the computer</strong> . As the computer has other peripherals (monitor, external drives, printer,...), it is necessary to estimate a <strong>safety margin for the electrical consumption</strong> of these peripherals. In our case, we estimate to increase the maximum power of the UPS by 30% and it will be the estimated apparent power <strong>S <sub><font style="vertical-align: inherit;">estimated </font></sub></strong> . S result, <sub><font style="vertical-align: inherit;">With the estimated </font></sub> would only suffice to search for the UPS with a load equal to or greater than the <sub><font style="vertical-align: inherit;">estimated </font></sub> it S.</p>
+<p>Therefore, UPS Power &gt;= S <sub><font style="vertical-align: inherit;">estimated </font></sub> , where S <sub><font style="vertical-align: inherit;">estimated </font></sub> \= S <sub><font style="vertical-align: inherit;">calculated </font></sub> + (S <sub><font style="vertical-align: inherit;">calculated </font></sub> * 30%)</p>
+<h2 id="data-maximum-power-p-consumed-by-the-source">DATA: Maximum power (p) consumed by the source</h2>
+<ul>
+<li>Data P= <strong>p</strong> and φ = 0.82 (unknown, 82% efficiency is applied as the worst found is φ =0.82).</li>
+<li>
+<p>Result:</p>
+</li>
+<li>
+<p>S <sub><font style="vertical-align: inherit;">Calculated </font></sub> \= <strong>p</strong> /0.82 VA</p>
+</li>
+<li>Estimated increase in consumption by 30% by peripherals; S <sub><font style="vertical-align: inherit;">Estimated </font></sub> \= <sub><font style="vertical-align: inherit;">Calculated </font></sub> S * 1.30</li>
+<li>S <sub><font style="vertical-align: inherit;">estimated </font></sub> will be the power from which we can search for a UPS.</li>
+</ul>
+<p><strong>Typical example:</strong> Calculation of the Apparent Power used if a computer consumes a maximum Power of <strong>500W</strong> , we have:</p>
+<ul>
+<li>Data V=230V, <strong>P=500 W</strong> and φ = 0.82 (unknown, 82% efficiency is applied because φ =0.82 is the worst found). .</li>
+<li>
+<p>Result:</p>
+</li>
+<li>
+<p>S <sub><font style="vertical-align: inherit;">Calculated </font></sub> \= P / 0.82 VA.</p>
+</li>
+<li>S <sub><font style="vertical-align: inherit;">Calculated </font></sub> \= 500 / 0.82 VA = 609.76 VA</li>
+<li>S <sub><font style="vertical-align: inherit;">estimate </font></sub> \= 609.76 * 1.30;</li>
+<li>S <sub><font style="vertical-align: inherit;">Estimated </font></sub> \= <strong>792.68 VA</strong></li>
+</ul>
+<p>If there were 700VA, 1000 VA and 1200 VA UPS. The choice would be the <strong>UPS with 1000 VA</strong> as it is the next one above the minimum value (792.68 VA)</p>
+<h2 id="data-power-supply-current-i">DATA: Power supply current (I)</h2>
+<ul>
+<li>Data <strong>I=i</strong> , V=230V</li>
+<li>
+<p>Result:</p>
+</li>
+<li>
+<p>S <sub><font style="vertical-align: inherit;">calculated </font></sub> \= <strong>i</strong> * 230 VA</p>
+</li>
+<li>Estimated increase in consumption by 30% by peripherals; S <sub><font style="vertical-align: inherit;">Estimated </font></sub> \= <sub><font style="vertical-align: inherit;">Calculated </font></sub> S * 1.30</li>
+<li>S <sub><font style="vertical-align: inherit;">estimated </font></sub> will be the power from which we can search for a UPS</li>
+</ul>
+<p><strong>Typical example:</strong> Calculation of the Apparent Power used if a computer consumes a maximum intensity of 2.173 A, we have:</p>
+<ul>
+<li>Datos: <strong>I=2,173A</strong> , V=230V</li>
+<li>
+<p>Result:</p>
+</li>
+<li>
+<p>S <sub><font style="vertical-align: inherit;">calculated </font></sub> \= i * 230 VA</p>
+</li>
+<li>S <sub><font style="vertical-align: inherit;">Calculated </font></sub> \=2.173 * 230 = 500 VA.</li>
+<li>S <sub><font style="vertical-align: inherit;">Estimated </font></sub> \= 500 * 1.30</li>
+<li>S <sub><font style="vertical-align: inherit;">estimated </font></sub> \= <strong>650 VA</strong></li>
+</ul>
+<p>If there were 700VA, 1000 VA and 1200 VA UPS. The choice would be the <strong>UPS with 700 VA</strong> as it is the next one above the minimum value (650 VA)</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ups-types/" class="btn btn-neutral float-left" title="2. UPS Types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../activities/" class="btn btn-neutral float-right" title="4. Activities">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ups-types/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../activities/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
